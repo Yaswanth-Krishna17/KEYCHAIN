@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Type | KeyConnect</title>
+    <style>
+        body {
+            background: #fafbfc;
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            padding: 32px 0 0 48px;
+        }
+        .logo-bar img {
+            height: 36px;
+            width: 36px;
+            margin-right: 10px;
+        }
+        .logo-bar span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #222;
+            letter-spacing: -1px;
+        }
+        .center-box {
+            background: #fff;
+            max-width: 420px;
+            margin: 48px auto 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            padding: 40px 36px 32px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+        }
+        .step-count {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #22c55e;
+            margin-left: 10px;
+        }
+        .close-btn {
+            font-size: 1.3rem;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 32px;
+        }
+        .user-type-btn {
+            width: 100%;
+            padding: 12px 0;
+            border: 1.5px solid #a259e6;
+            border-radius: 10px;
+            background: #fff;
+            color: #a259e6;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+            position: relative;
+        }
+        .user-type-btn.selected, .user-type-btn:active {
+            background: #f3e8ff;
+            color: #7c3aed;
+            border-color: #7c3aed;
+        }
+        .popdown {
+            display: none;
+            position: relative;
+            width: 100%;
+            background: #f3e8ff;
+            color: #7c3aed;
+            border: 1.5px solid #7c3aed;
+            border-radius: 0 0 10px 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 10px 0 10px 0;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            text-align: center;
+            z-index: 1;
+        }
+        .popdown.active {
+            display: block;
+            animation: popdown-fade 0.2s;
+        }
+        @keyframes popdown-fade {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .next-btn {
+            background: #a259e6;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 13px 0;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .next-btn:hover {
+            background: #7c3aed;
+        }
+        @media (max-width: 600px) {
+            .center-box {
+                max-width: 98vw;
+                padding: 18px 4vw 18px 4vw;
+            }
+            .logo-bar {
+                padding: 18px 0 0 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-bar">
+        <img src="../assets/Screenshot 2025-06-19 170533.png" alt="KeyConnect Logo">
+        <span>KeyConnect</span>
+    </div>
+    <div class="center-box">
+        <div class="step-header">
+            <span class="step-title">User Type <span class="step-count">1 of 3</span></span>
+            <button class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form>
+            <div class="form-group">
+                <button type="button" class="user-type-btn" id="btn-individual">Individual</button>
+                <div class="popdown" id="popdown-individual">You selected: Individual</div>
+                <button type="button" class="user-type-btn" id="btn-club">Club</button>
+                <div class="popdown" id="popdown-club">You selected: Club</div>
+            </div>
+            <button type="submit" class="next-btn">Next step</button>
+        </form>
+    </div>
+    <script>
+        const btnIndividual = document.getElementById('btn-individual');
+        const btnClub = document.getElementById('btn-club');
+        const popdownIndividual = document.getElementById('popdown-individual');
+        const popdownClub = document.getElementById('popdown-club');
+
+        btnIndividual.addEventListener('click', function() {
+            popdownIndividual.classList.add('active');
+            popdownClub.classList.remove('active');
+            btnIndividual.classList.add('selected');
+            btnClub.classList.remove('selected');
+        });
+        btnClub.addEventListener('click', function() {
+            popdownClub.classList.add('active');
+            popdownIndividual.classList.remove('active');
+            btnClub.classList.add('selected');
+            btnIndividual.classList.remove('selected');
+        });
+        // Prevent form submission for demo
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
