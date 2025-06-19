@@ -185,6 +185,31 @@
         .continue-btn:hover {
             background: #7c3aed;
         }
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(90deg, #a259e6 0%, #7c3aed 100%);
+            color: #fff !important;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 0;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(162,89,230,0.10);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-btn:hover {
+            background: linear-gradient(90deg, #7c3aed 0%, #a259e6 100%);
+            color: #fff;
+        }
+        .back-btn i {
+            margin-right: 6px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -229,7 +254,7 @@
                 <a href="#">Privacy Policy</a>
             </div>
             <button type="submit" class="continue-btn">CONTINUE</button>
-            <button type="button" class="back-btn" style="margin-top:10px;background:#eee;color:#444;">Back</button>
+            <button type="button" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Personal Info</button>
         </form>
     </div>
     <script>
