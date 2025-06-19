@@ -205,6 +205,31 @@
         .save-btn:hover {
             background: #7c3aed;
         }
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(90deg, #2e90fa 0%, #38bdf8 100%);
+            color: #fff !important;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px 0;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(46,144,250,0.10);
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .back-btn:hover {
+            background: linear-gradient(90deg, #38bdf8 0%, #2e90fa 100%);
+            color: #fff;
+        }
+        .back-btn i {
+            margin-right: 6px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -253,7 +278,7 @@
                 <input type="date" class="birthday-input" placeholder="Birthday">
             </div>
             <button type="submit" class="save-btn">Save information</button>
-            <button type="button" class="back-btn" style="margin-top:10px;background:#eee;color:#444;">Back</button>
+            <button type="button" class="back-btn"><i class="fas fa-arrow-left"></i> Back to User Type</button>
         </form>
     </div>
     <script>
