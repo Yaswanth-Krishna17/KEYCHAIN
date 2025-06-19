@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEY2STAY</title>
+    <link rel="icon" href="assets/r4xn-black.png" type="image/png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="fade-in bg-[#F2F2F2]">
+
+    <div class="flex justify-center px-4">
+        <header id="header" class="bg-white mt-6 lg:w-[70%] w-[90%] flex flex-col items-center justify-between px-10 py-4 rounded-[20px] fixed z-10 transition-opacity duration-500">
+            <div class="flex items-center w-full justify-between">
+                <div class="flex items-center">
+                    <img src="assets/Screenshot 2025-06-19 170533.png" alt="Logo" class="w-12 h-12">
+                    <div class="ml-3">
+                        <h1 class="text-lg font-semibold">KEY2STAY</h1>
+                        <p class="text-sm text-gray-400">HOTEL Booking</p>
+                    </div>
+                </div>
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="" class="text-md">Login</a>
+                    <a href="" class="text-md">Register</a>
+                    <a href="" class="text-md">About</a>
+                    <a href="" class="text-md">Contact</a>
+                </nav>
+                <button class="lg:hidden" id="menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="w-full mt-4 backdrop-blur-lg bg-opacity-10 hidden" id="mobile-menu">
+                <nav class="flex flex-col space-y-4 py-4">
+                    <a href="login.html" class="text-md">Login</a>
+                    <a href="register.html" class="text-md">Register</a>
+                    <a href="about.html" class="text-md">About</a>
+                    <a href="contact.html" class="text-md">Contact</a>
+                </nav>
+            </div>
+        </header>
+    </div>
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
