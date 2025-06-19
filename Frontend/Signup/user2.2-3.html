@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information (Club) | KeyConnect</title>
+    <style>
+        body {
+            background: #fafbfc;
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            padding: 32px 0 0 48px;
+        }
+        .logo-bar img {
+            height: 36px;
+            width: 36px;
+            margin-right: 10px;
+        }
+        .logo-bar span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #222;
+            letter-spacing: -1px;
+        }
+        .center-box {
+            background: #fff;
+            max-width: 420px;
+            margin: 48px auto 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            padding: 40px 36px 32px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+            border: 2px solid #2e90fa;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+        }
+        .step-count {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #22c55e;
+            margin-left: 10px;
+        }
+        .close-btn {
+            font-size: 1.3rem;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-bottom: 18px;
+        }
+        .input-box {
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafbfc;
+            padding: 0 16px;
+            height: 44px;
+            font-size: 1rem;
+            color: #222;
+            outline: none;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .input-box:focus {
+            border: 1.5px solid #2e90fa;
+        }
+        .gender-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 10px;
+        }
+        .gender-label {
+            font-size: 1rem;
+            color: #444;
+            margin-right: 8px;
+        }
+        .gender-option {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 1rem;
+        }
+        .gender-option input[type="radio"] {
+            accent-color: #a259e6;
+        }
+        .gender-option label {
+            color: #a259e6;
+            font-weight: 500;
+        }
+        .gender-option.female label {
+            color: #e48ccf;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+        .info-row i {
+            font-size: 1rem;
+        }
+        .phone-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .country-code {
+            width: 90px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafbfc;
+            padding: 0 10px;
+            height: 44px;
+            font-size: 1rem;
+            color: #222;
+            outline: none;
+        }
+        .country-code:focus {
+            border: 1.5px solid #2e90fa;
+        }
+        .phone-input {
+            flex: 1;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafbfc;
+            padding: 0 16px;
+            height: 44px;
+            font-size: 1rem;
+            color: #222;
+            outline: none;
+        }
+        .phone-input:focus {
+            border: 1.5px solid #2e90fa;
+        }
+        .birthday-row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        .birthday-input {
+            flex: 1;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafbfc;
+            padding: 0 16px;
+            height: 44px;
+            font-size: 1rem;
+            color: #222;
+            outline: none;
+        }
+        .birthday-input:focus {
+            border: 1.5px solid #2e90fa;
+        }
+        @media (max-width: 600px) {
+            .center-box {
+                max-width: 98vw;
+                padding: 18px 4vw 18px 4vw;
+            }
+            .logo-bar {
+                padding: 18px 0 0 12px;
+            }
+        }
+        .save-btn {
+            width: 100%;
+            background: #a259e6;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 20px 0;
+            margin: 36px auto 0 auto;
+            display: block;
+            max-width: 420px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .save-btn:hover {
+            background: #7c3aed;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="logo-bar">
+        <img src="../assets/Screenshot 2025-06-19 170533.png" alt="KeyConnect Logo">
+        <span>KeyConnect</span>
+    </div>
+    <div class="center-box">
+        <div class="step-header">
+            <span class="step-title">Personal information <span class="step-count">2 of 3</span></span>
+            <button class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form id="info-form">
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Organisation Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" class="input-box" placeholder="Domain Email" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Host First name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Host last name" required>
+            </div>
+            <div class="gender-row">
+                <span class="gender-label">Gender:</span>
+                <span class="gender-option"><input type="radio" name="gender" id="male" checked><label for="male">Male</label></span>
+                <span class="gender-option female"><input type="radio" name="gender" id="female"><label for="female">Female</label></span>
+            </div>
+            <div class="info-row">
+                <i class="fas fa-info-circle"></i>
+                <span>The phone number and birthday are only visible to you</span>
+            </div>
+            <div class="phone-row">
+                <select class="country-code">
+                    <option>+ 598</option>
+                    <option>+ 91</option>
+                    <option>+ 1</option>
+                    <option>+ 44</option>
+                </select>
+                <input type="tel" class="phone-input" placeholder="Phone number">
+            </div>
+            <div class="birthday-row">
+                <input type="date" class="birthday-input" placeholder="Birthday">
+            </div>
+            <button type="submit" class="save-btn">Save information</button>
+            <button type="button" class="back-btn" style="margin-top:10px;background:#eee;color:#444;">Back</button>
+        </form>
+    </div>
+    <script>
+    document.getElementById('info-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = 'user3-3.html?type=club';
+    });
+    document.querySelector('.back-btn').onclick = function() {
+        window.location.href = 'user1-3.html';
+    };
+    </script>
+</body>
+</html>

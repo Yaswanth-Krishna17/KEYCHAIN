@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Address | KeyConnect</title>
+    <style>
+        body {
+            background: #fafbfc;
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .logo-bar {
+            display: flex;
+            align-items: center;
+            padding: 32px 0 0 48px;
+        }
+        .logo-bar img {
+            height: 36px;
+            width: 36px;
+            margin-right: 10px;
+        }
+        .logo-bar span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #222;
+            letter-spacing: -1px;
+        }
+        .center-box {
+            background: #fff;
+            max-width: 420px;
+            margin: 48px auto 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            padding: 40px 36px 32px 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            position: relative;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #222;
+        }
+        .step-count {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #22c55e;
+            margin-left: 10px;
+        }
+        .close-btn {
+            font-size: 1.3rem;
+            color: #888;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .search-row {
+            display: flex;
+            align-items: center;
+            background: #fafbfc;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 0 16px;
+            height: 44px;
+            margin-bottom: 6px;
+        }
+        .search-row i {
+            color: #888;
+            font-size: 1.1rem;
+            margin-right: 8px;
+        }
+        .search-row input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 1rem;
+            color: #222;
+            flex: 1;
+        }
+        .info-text {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            margin-left: 2px;
+        }
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .location-btn, .manual-btn {
+            flex: 1;
+            border: 1.5px solid #a259e6;
+            background: #fff;
+            color: #a259e6;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .location-btn.selected, .manual-btn.selected {
+            background: #f3e8ff;
+            color: #7c3aed;
+            border-color: #7c3aed;
+        }
+        .location-btn i {
+            margin-right: 6px;
+        }
+        .form-group {
+            margin-bottom: 14px;
+        }
+        .input-box {
+            border: 1.5px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafbfc;
+            padding: 0 16px;
+            height: 44px;
+            font-size: 1rem;
+            color: #222;
+            outline: none;
+            width: 100%;
+        }
+        .input-box:focus {
+            border: 1.5px solid #a259e6;
+        }
+        .input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .input-half {
+            flex: 1;
+        }
+        .optional {
+            color: #bbb;
+            font-size: 0.95rem;
+            margin-left: 8px;
+        }
+        .terms {
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .terms a {
+            color: #7c3aed;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .center-box {
+                max-width: 98vw;
+                padding: 18px 4vw 18px 4vw;
+            }
+            .logo-bar {
+                padding: 18px 0 0 12px;
+            }
+        }
+        .continue-btn {
+            width: 100%;
+            background: #a259e6;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 20px 0;
+            margin: 36px auto 0 auto;
+            display: block;
+            max-width: 420px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .continue-btn:hover {
+            background: #7c3aed;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="logo-bar">
+        <img src="../assets/Screenshot 2025-06-19 170533.png" alt="KeyConnect Logo">
+        <span>KeyConnect</span>
+    </div>
+    <div class="center-box">
+        <div class="step-header">
+            <span class="step-title">Add adress <span class="step-count">3 of 3</span></span>
+            <button class="close-btn" aria-label="Close">&times;</button>
+        </div>
+        <form id="address-form">
+            <div class="search-row">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for address">
+            </div>
+            <div class="info-text">Your address is not visible to other users</div>
+            <div class="button-row">
+                <button type="button" class="location-btn"><i class="fas fa-map-marker-alt"></i>Use current location</button>
+                <button type="button" class="manual-btn">Add manually</button>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Street address" value="319 Bainbridge Street">
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Apartament"><span class="optional">Optional</span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="City" value="New York City">
+            </div>
+            <div class="input-row">
+                <input type="text" class="input-box input-half" placeholder="State" value="New York">
+                <input type="text" class="input-box input-half" placeholder="Zip code" value="11233">
+            </div>
+            <div class="form-group">
+                <input type="text" class="input-box" placeholder="Referral"><span class="optional">Optional</span>
+            </div>
+            <div class="terms">
+                By continuing I agree with the <a href="#">Terms & Conditions</a>,<br>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <button type="submit" class="continue-btn">CONTINUE</button>
+            <button type="button" class="back-btn" style="margin-top:10px;background:#eee;color:#444;">Back</button>
+        </form>
+    </div>
+    <script>
+    document.getElementById('address-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const params = new URLSearchParams(window.location.search);
+        const type = params.get('type');
+        if(type === 'club') {
+            window.location.href = 'userSuccess.html?type=club';
+        } else {
+            window.location.href = 'userSuccess.html?type=individual';
+        }
+    });
+    document.querySelector('.back-btn').onclick = function() {
+        const params = new URLSearchParams(window.location.search);
+        if(params.get('type') === 'club') {
+            window.location.href = 'user2.2-3.html?type=club';
+        } else {
+            window.location.href = 'user2.1-3.html?type=individual';
+        }
+    };
+    </script>
+</body>
+</html>

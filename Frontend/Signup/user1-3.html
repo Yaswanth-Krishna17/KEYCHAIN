@@ -113,14 +113,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .next-btn {
+            width: 100%;
             background: #a259e6;
             color: #fff;
             border: none;
             border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 13px 0;
-            margin-top: 30px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 20px 0;
+            margin-top: 40px;
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -148,7 +149,7 @@
             <span class="step-title">User Type <span class="step-count">1 of 3</span></span>
             <button class="close-btn" aria-label="Close">&times;</button>
         </div>
-        <form>
+        <form id="user-type-form">
             <div class="form-group">
                 <button type="button" class="user-type-btn" id="btn-individual">Individual</button>
                 <div class="popdown" id="popdown-individual">You selected: Individual</div>
@@ -156,6 +157,7 @@
                 <div class="popdown" id="popdown-club">You selected: Club</div>
             </div>
             <button type="submit" class="next-btn">Next step</button>
+            <button type="button" class="back-btn" style="margin-top:10px;background:#eee;color:#444;">Back</button>
         </form>
     </div>
     <script>
@@ -163,23 +165,34 @@
         const btnClub = document.getElementById('btn-club');
         const popdownIndividual = document.getElementById('popdown-individual');
         const popdownClub = document.getElementById('popdown-club');
-
+        let selected = null;
         btnIndividual.addEventListener('click', function() {
             popdownIndividual.classList.add('active');
             popdownClub.classList.remove('active');
             btnIndividual.classList.add('selected');
             btnClub.classList.remove('selected');
+            selected = 'individual';
         });
         btnClub.addEventListener('click', function() {
             popdownClub.classList.add('active');
             popdownIndividual.classList.remove('active');
             btnClub.classList.add('selected');
             btnIndividual.classList.remove('selected');
+            selected = 'club';
         });
-        // Prevent form submission for demo
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.getElementById('user-type-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            if(selected === 'individual') {
+                window.location.href = 'user2.1-3.html?type=individual';
+            } else if(selected === 'club') {
+                window.location.href = 'user2.2-3.html?type=club';
+            } else {
+                alert('Please select a user type.');
+            }
         });
+        document.querySelector('.back-btn').onclick = function() {
+            window.location.href = 'signup.html';
+        };
     </script>
 </body>
 </html>
